@@ -306,7 +306,7 @@ def Vector.new(x,y)
   return clone self
 end
 
-def vector.length()
+def Vector.length()
   return sqr(self.x * self.x + self.y * self.y)
 end
 ```
