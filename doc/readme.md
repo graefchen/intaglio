@@ -232,6 +232,26 @@ false
 true
 ```
 
+#### controll flow
+
+```
+if condition
+  println("yes")
+else
+  println("no")
+end
+
+i = 0
+while i < 10
+  i = i + 1
+end
+
+for i = 1, i < 10, i = i + 1
+
+end
+
+```
+
 #### functions
 
 ```
@@ -248,7 +268,7 @@ hello()
 hi("intaglio")
 ```
 
-#### clojures
+#### closures
 
 ```
 def hello()
@@ -263,15 +283,30 @@ hi()
 #### prototypes
 
 ```
-object bird
-  name
+bird = {}
+# adding a variaböe
+bird.name = "Raven"
 
-  def sound(sound)
-    println(self.name .. " makes the sound " .. sound )
-  end
+# adding a function
+def bird.scream(noise)
+  println(noise)
 end
 
-larry = bird(parrot)
-larry.sound("awk")
+bird.scream("AWK")
 
+raven = clone bird
+
+raven.scream("KRAH")
+
+Vector = { x = 1, y = 1 }
+
+def Vector.new(x,y)
+  self.x = x
+  self.y = y
+  return clone self
+end
+
+def vector.length()
+  return sqr(self.x * self.x + self.y * self.y)
+end
 ```
