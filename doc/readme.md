@@ -2,7 +2,7 @@
 
 ## base ideas
 
-- small dynamic prototype-based scripting language
+- small dynamic class-based scripting language
 - inspired by
   - io
   - lua
@@ -31,7 +31,7 @@ Interface over subcommands.
 
 ```bash
 $ intaglio
-A small dynamic prototype-based scripting language.
+A small dynamic class-based scripting language.
 
 Usage: intaglio.exe <COMMAND>
 
@@ -204,7 +204,7 @@ Options:
 | /      | arithmetic(binary) | division              |
 | %      | arithmetic(binary) | modulo                |
 | ^      | arithmetic(binary) | power                 |
-| -      | arithmetic(unary)  | negate                |
+| \-     | arithmetic(unary)  | negate                |
 | &&     | logic              | logical and           |
 | \|\|   | logic              | logical or            |
 | !      | logic              | logical not           |
@@ -232,7 +232,7 @@ false
 true
 ```
 
-#### controll flow
+#### control flow
 
 ```
 if condition
@@ -280,33 +280,34 @@ hi = hello()
 hi()
 ```
 
-#### prototypes
+#### classe
 
 ```
-bird = {}
-# adding a variaböe
-bird.name = "Raven"
+class bird
+  # adding a variable
+  name = "Raven"
 
-# adding a function
-def bird.scream(noise)
-  println(noise)
+  # adding a function
+  def scream(noise)
+    println(noise)
+  end
 end
 
 bird.scream("AWK")
 
-raven = clone bird
-
+raven = new bird()
 raven.scream("KRAH")
 
-Vector = { x = 1, y = 1 }
+class Vector
+  x = 1, y = 1
 
-def Vector.new(x,y)
-  self.x = x
-  self.y = y
-  return clone self
-end
+  def init(x,y)
+    self.x = x
+    self.y = y
+  end
 
-def Vector.length()
-  return sqr(self.x * self.x + self.y * self.y)
+  def length()
+    return sqrt(self.x * self.x + self.y * self.y)
+  end
 end
 ```
