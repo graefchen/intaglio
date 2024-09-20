@@ -1,4 +1,4 @@
-# intaglio - language definition
+# intaglio - language funinition
 
 ## base ideas
 
@@ -156,9 +156,9 @@ Running command `intaglio repl`:
 ```bash
 $ intaglio repl
 Intaglio 0.0.1  :help for help  Ctrl+C to exit
->>> 1 + 1
+Intaglio:0:1> 1 + 1
 2
->>>
+Intaglio:0:2>
 $
 ```
 
@@ -232,6 +232,15 @@ false
 true
 ```
 
+#### keywords
+
+```
+if
+else
+fun
+class
+```
+
 #### control flow
 
 ```
@@ -255,12 +264,14 @@ end
 #### functions
 
 ```
-def hello()
+fun hello()
   hw = "Hello, 🌍"
+  # function calls can be with or without brackets
   println(h)
+  println h
 end
 
-def hi(name)
+fun hi(name)
   println("Hello " .. name)
 end
 
@@ -271,7 +282,7 @@ hi("intaglio")
 #### closures
 
 ```
-def hello()
+fun hello()
   hw = "Hello, 🌍"
   println(h)
 end
@@ -288,7 +299,7 @@ class bird
   name = "Raven"
 
   # adding a function
-  def scream(noise)
+  fun scream(noise)
     println(noise)
   end
 end
@@ -301,13 +312,22 @@ raven.scream("KRAH")
 class Vector
   x = 1, y = 1
 
-  def init(x,y)
+  fun init(x,y)
     self.x = x
     self.y = y
   end
 
-  def length()
+  fun length()
     return sqrt(self.x * self.x + self.y * self.y)
   end
 end
+```
+
+#### buildin-functions
+
+##### load
+
+```
+load "foo.inta"
+load("foo.inta")
 ```
