@@ -23,6 +23,12 @@
 
 ## design
 
+> [!NOTE]
+> Under the Design it isn't understood that only the languge by itself should be designed,
+> but also the whole command line interface and error messages.
+> In the best case you could go from an empty file to an functining programm.
+> Use elm and gleam as a heavy reference for this.
+
 ### command line
 
 Interface over subcommands.
@@ -156,9 +162,9 @@ Running command `intaglio repl`:
 ```bash
 $ intaglio repl
 Intaglio 0.0.1  :help for help  Ctrl+C to exit
-Intaglio:0:1> 1 + 1
+ingl:0:1> 1 + 1
 2
-Intaglio:0:2>
+ingl:0:2> exit
 $
 ```
 
@@ -222,6 +228,7 @@ Options:
 a = 100
 b = 2.5
 c = "Hello, 🌍"
+d = [ "Hello", "World" ]
 ```
 
 #### constants
@@ -237,14 +244,15 @@ true
 ```
 if
 else
-fun
+function
 class
+end
 ```
 
 #### control flow
 
 ```
-if condition
+if true
   println("yes")
 else
   println("no")
@@ -264,25 +272,25 @@ end
 #### functions
 
 ```
-fun hello()
-  hw = "Hello, 🌍"
+function hello()
+  h = "Hello, 🌍"
   # function calls can be with or without brackets
   println(h)
   println h
 end
 
-fun hi(name)
-  println("Hello " .. name)
+function hi(name)
+  println("Hello, " .. name)
 end
 
 hello()
-hi("intaglio")
+hi("🌍")
 ```
 
 #### closures
 
 ```
-fun hello()
+function hello()
   hw = "Hello, 🌍"
   println(h)
 end
@@ -299,7 +307,7 @@ class bird
   name = "Raven"
 
   # adding a function
-  fun scream(noise)
+  function scream(noise)
     println(noise)
   end
 end
@@ -312,12 +320,12 @@ raven.scream("KRAH")
 class Vector
   x = 1, y = 1
 
-  fun init(x,y)
+  function init(x,y)
     self.x = x
     self.y = y
   end
 
-  fun length()
+  function length()
     return sqrt(self.x * self.x + self.y * self.y)
   end
 end
@@ -325,9 +333,8 @@ end
 
 #### buildin-functions
 
-##### load
-
-```
-load "foo.inta"
-load("foo.inta")
-```
+| name    | desciption                        | argument 1 |
+| ------- | --------------------------------- | ---------- |
+| load    | loading an file into the vm       | string     |
+| print   | printing an object                | string     |
+| println | printing an object with a newline | string     |
