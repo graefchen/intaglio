@@ -33,13 +33,20 @@
 
 Interface over subcommands.
 
+inspired by:
+
+- elm
+- gleam
+- lua
+- uiua
+
 #### intaglio
 
 ```bash
 $ intaglio
 A small dynamic class-based scripting language.
 
-Usage: intaglio.exe <COMMAND>
+Usage: intaglio <COMMAND>
 
 Commands:
   init     Initialize a new file.
@@ -61,7 +68,7 @@ Options:
 $ intaglio init --help
 Initialize a new file.
 
-Usage: intaglio.exe init
+Usage: intaglio init
 
 Options:
   -h, --help  Print help
@@ -71,12 +78,12 @@ Options:
 
 ```bash
 $ intaglio compile --help
-Initialize a new file.
+Compile a file to bytecode.
 
-Usage: intaglio.exe compile [FILE]...
+Usage: intaglio compile [FILE]...
 
 Arguments:
-  FILE  The file to be run
+  FILE  The file to be compiled to bytecode
 
 Options:
   -h, --help  Print help
@@ -88,7 +95,7 @@ Options:
 $ intaglio run --help
 Run a file.
 
-Usage: intaglio.exe run <FILE>
+Usage: intaglio run <FILE>
 
 Arguments:
   FILE  The file to be run
@@ -103,7 +110,7 @@ Options:
 $ intaglio eval --help
 Evaluate a string.
 
-Usage: intaglio.exe eval <STRING>
+Usage: intaglio eval <STRING>
 
 Arguments:
   STRING  The string to be evaluated
@@ -121,7 +128,7 @@ Options:
 $ intaglio fmt --help
 Format file/directoy.
 
-Usage: intaglio.exe fmt <PATH>
+Usage: intaglio fmt <PATH>
 
 Arguments:
   PATH  The file/directory to format.
@@ -149,7 +156,7 @@ Help message for `intaglio repl`:
 $ intaglio repl --help
 Start the REPL.
 
-Usage: intaglio.exe repl
+Usage: intaglio repl
 
 Options:
   -h, --help  Print help
@@ -174,7 +181,7 @@ $
 $ intaglio help
 Print help message.
 
-Usage: intaglio.exe help [COMMAND]
+Usage: intaglio help [COMMAND]
 
 Commands:
   init     Initialize a new file.
@@ -274,9 +281,7 @@ end
 ```
 function hello()
   h = "Hello, 🌍"
-  # function calls can be with or without brackets
   println(h)
-  println h
 end
 
 function hi(name)
@@ -284,7 +289,7 @@ function hi(name)
 end
 
 hello()
-hi("🌍")
+hi "🌍"
 ```
 
 #### closures
@@ -314,7 +319,7 @@ end
 
 bird.scream("AWK")
 
-raven = new bird()
+raven = bird()
 raven.scream("KRAH")
 
 class Vector
@@ -325,9 +330,45 @@ class Vector
     self.y = y
   end
 
-  function length()
-    return sqrt(self.x * self.x + self.y * self.y)
+  function pos()
+    println "{ x: " .. self.x .. ", y: " .. self.y .. " }"
   end
+end
+```
+
+#### modules
+
+```
+module GraphicsMath
+
+  class Vector
+
+  end
+
+  class Vector2D < Vector
+    function init(x, y)
+      self.x = x
+      self.y = y
+    end
+  end
+
+  class Vector3D < Vector
+    function init(x, y, z)
+      self.x = x
+      self.y = y
+      self.z = z
+    end
+  end
+
+  class Vector4D < Vector
+    function init(x, y, z, a)
+      self.x = x
+      self.y = y
+      self.z = z
+      self.a = a
+    end
+  end
+
 end
 ```
 
@@ -338,3 +379,11 @@ end
 | load    | loading an file into the vm       | string     |
 | print   | printing an object                | string     |
 | println | printing an object with a newline | string     |
+
+#### errors
+
+General Design:
+
+- clarity
+- directly understanding what went wrong
+- easy to read output
