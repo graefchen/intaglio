@@ -20,6 +20,7 @@
     - multithread ([ref](https://blog.subnetzero.io/post/building-language-vm-part-17/))
     - clustering ([ref](https://blog.subnetzero.io/post/building-language-vm-part-27/))
 - small
+- everything is an object
 
 ## design
 
@@ -352,21 +353,8 @@ module GraphicsMath
     end
   end
 
-  class Vector3D < Vector
-    function init(x, y, z)
-      self.x = x
-      self.y = y
-      self.z = z
-    end
-  end
-
-  class Vector4D < Vector
-    function init(x, y, z, a)
-      self.x = x
-      self.y = y
-      self.z = z
-      self.a = a
-    end
+  function distance(a, b)
+    return Vector2D(a.x - b.x, a.y - b.y)
   end
 
 end
