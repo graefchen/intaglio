@@ -1,26 +1,35 @@
-# intaglio - language funinition
+# intaglio - language definition
 
 ## base ideas
 
 - small dynamic class-based scripting language
 - inspired by
-  - io
-  - lua
-  - ruby
+  - elm [ref](https://elm-lang.org)
+  - gleam [ref](https://gleam.run)
+  - haskell [ref](https://www.haskell.org)
+  - io [ref](https://iolanguage.org)
+  - lox [ref](https://craftinginterpreters.com/the-lox-language.html)
+  - lua [ref](https://www.lua.org)
+  - python [ref](https://www.python.org)
+  - ruby [ref](https://www.ruby-lang.org/en/)
+  - uiua [ref](https://www.uiua.org)
 - easy and good to read (like ruby)
 - fast
   - one pass compiler
   - register vm (bytecode)
+  - german strings [ref](https://cedardb.com/blog/german_strings/)
   - gc (todo)
     - piccole [ref](https://kyju.org/blog/piccolo-a-stackless-lua-interpreter/)
     - grimoire [ref](https://verdagon.dev/grimoire/grimoire)
     - ci [ref](https://tunglevo.com/note/crafting-interpreters-with-rust-on-garbage-collection/)
     - ci [ref](https://ceronman.com/2021/07/22/my-experience-crafting-an-interpreter-with-rust/)
+    - conservative-gc [ref](https://wingolog.org/archives/2024/09/07/conservative-gc-can-be-faster-than-precise-gc)
   - possible extensions
     - multithread ([ref](https://blog.subnetzero.io/post/building-language-vm-part-17/))
     - clustering ([ref](https://blog.subnetzero.io/post/building-language-vm-part-27/))
-- small
-- everything is an object
+- small/tiny/dense [ref](https://dercuano.github.io/notes/tiny-interpreters-for-microcontrollers.html)
+- everything is an object (is that even possible, based on my current knowledge?)
+- written in tiger style [ref](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md)
 
 ## design
 
